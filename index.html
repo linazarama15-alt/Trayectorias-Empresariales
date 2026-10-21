@@ -167,6 +167,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .tr-row-label { font-size: var(--cds-font-size-caption); text-align: right; line-height: 1.2; }
 @media (max-width: 30rem) { .tr-row-label { text-align: left; } }
 .tr-row.is-principal .tr-row-label { font-weight: 700; }
+.tr-row-sub { font-size: .7rem; font-weight: 400; color: var(--color-fg-muted); }
 .tr-track { position: relative; height: 1.6rem; }
 .tr-track.has-sub { height: 2.35rem; }
 .tr-fill { position: absolute; left: 0; top: 0; height: 1.6rem; background: var(--tr-gold); border-radius: 0 4px 4px 0; transition: width var(--cds-dur-slow) var(--cds-ease-out); }
@@ -347,6 +348,17 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 #sec-metodo ~ .tr-capgrid .tr-def, .tr-capgrid .tr-card .tr-def { max-width: none; text-align: justify; hyphens: auto; }
 .tr-progress { height: .55rem; border-radius: 999px; background: var(--tr-soft); overflow: hidden; }
 .tr-progress i { display: block; height: 100%; background: var(--tr-gold); }
+.tr-progress.is-two { position: relative; }
+.tr-progress.is-two i { position: absolute; left: 0; top: 0; }
+.tr-progress.is-two i.is-enc { background: color-mix(in srgb, var(--tr-gold) 35%, transparent); }
+.tr-qlink { color: var(--tr-meta); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; cursor: pointer; }
+.tr-qlink:hover { color: var(--color-fg); }
+.tr-qlink:focus-visible { outline: 2px solid var(--tr-gold-deep); outline-offset: 2px; border-radius: 3px; }
+.tr-card.is-flash { box-shadow: 0 0 0 3px var(--tr-gold); transition: box-shadow .3s; }
+.tr-why { margin: 0; background: var(--tr-soft); border-left: 4px solid var(--tr-gold); border-radius: 6px; padding: .6rem .85rem; font-size: var(--cds-font-size-caption); line-height: 1.5; color: var(--color-fg-muted); text-align: justify; }
+.tr-why b { color: var(--color-fg); }
+.tr-capnote { margin: 0; font-size: var(--cds-font-size-caption); line-height: 1.5; color: var(--color-fg-muted); background: var(--tr-soft); border-radius: 6px; padding: .6rem .85rem; text-align: justify; }
+.tr-capnote b { color: var(--color-fg); }
 /* Formulario */
 .tr-qhead { display: flex; gap: var(--cds-gap-sm); align-items: flex-start; }
 .tr-qn { flex: none; background: var(--tr-gold); color: var(--tr-black); font-weight: 700; border-radius: 6px; padding: .1rem .45rem; font-size: var(--cds-font-size-caption); margin-top: .1rem; }
@@ -439,38 +451,38 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
       <p class="tr-def">Para la medición preliminar se priorizaron <b>1.119 empresas</b> acompañadas y atendidas por Desarrollo Empresarial hasta agosto de 2026 en 11 programas priorizados. Se encuestaron <b>603</b>; se analizan las <b>589</b> que autorizaron el tratamiento de datos.</p>
       <div class="tr-kpis">
         <div class="tr-card tr-kpi"><div class="tr-kpi-label">Priorizadas</div><div class="tr-kpi-n">1.119</div><p class="tr-kpi-text">Empresas en 11 programas.</p></div>
-        <div class="tr-card tr-kpi"><div class="tr-kpi-label">Encuestadas</div><div class="tr-kpi-n">603</div><p class="tr-kpi-text"><b>53,9%</b> de las priorizadas.</p><div class="tr-progress" aria-hidden="true"><i style="width:53.9%"></i></div></div>
+        <div class="tr-card tr-kpi"><div class="tr-kpi-label">Encuestadas y analizadas</div><div class="tr-kpi-n">589</div><p class="tr-kpi-text">Se encuestaron <b>603</b> empresas (53,9% de las priorizadas) y se analizan las <b>589</b> que autorizaron el tratamiento de datos (52,6%).</p><div class="tr-progress is-two" aria-hidden="true"><i class="is-enc" style="width:53.9%"></i><i style="width:52.6%"></i></div></div>
         <div class="tr-card tr-kpi"><div class="tr-kpi-label">Avance frente a la meta anual</div><div class="tr-kpi-n">18,6%</div><p class="tr-kpi-text">603 de <b>3.243</b> empresas de la sección de Desarrollo Empresarial.</p><div class="tr-progress" aria-hidden="true"><i style="width:18.6%"></i></div></div>
       </div>
     </div>
   </section>
   <section class="tr-section" aria-labelledby="sec-metodo">
     <div class="tr-sec-head"><span class="tr-sec-n">∑</span><h2 class="tr-sec-title" id="sec-metodo">Metodología: cómo se calculan los indicadores</h2></div>
-    <p class="tr-def" style="max-width:none;text-align:justify">Todos los indicadores son el porcentaje de empresas que cumplen la regla sobre las <b>589 respuestas</b> con autorización de datos (o sobre las respuestas que quedan con los filtros). Antes de comparar, los textos se limpian de espacios dobles y de no separación. La <b>atribución favorable</b> (P14) es responder «Como la mitad», «La mayor parte» o «Todo el cambio».</p>
+    <p class="tr-def" style="max-width:none;text-align:justify">Todos los indicadores son el porcentaje de empresas que cumplen la regla sobre las <b>589 respuestas</b> con autorización de datos (o sobre las respuestas que quedan con los filtros). Antes de comparar, los textos se limpian de espacios dobles y de no separación. Casi todos exigen <b>atribución favorable</b>: en la <a class="tr-qlink" href="#q-14" data-q="14">pregunta 14: «¿Qué parte de esos cambios atribuye al acompañamiento de Colsubsidio?»</a>, la empresa responde «Como la mitad», «La mayor parte» o «Todo el cambio». Cada enlace lleva a la pregunta completa, con sus opciones, en la pestaña <b>Formulario</b>.</p>
     <div class="tr-capgrid">
       <div class="tr-card">
         <div class="tr-def-label">Indicador principal · aumento en ventas</div>
-        <p class="tr-def">En P13, «Los ingresos o ventas del negocio» <b>«Ha aumentado un poco» o «Ha aumentado bastante»</b>, y atribución favorable. Se compara con la <b>meta del 30%</b>; la brecha es el indicador menos 30, en puntos porcentuales.</p>
+        <p class="tr-def">En la <a class="tr-qlink" href="#q-13" data-q="13">pregunta 13: «Desde que terminó el programa, ¿ha notado algún cambio en los siguientes aspectos de su negocio?»</a>, en el ítem «Los ingresos o ventas del negocio», la empresa responde <b>«Ha aumentado un poco» o «Ha aumentado bastante»</b>, y además tiene atribución favorable. Se compara con la <b>meta del 30%</b>; la brecha es el indicador menos 30, en puntos porcentuales.</p>
       </div>
       <div class="tr-card">
         <div class="tr-def-label">Indicador de soporte · capacidades</div>
-        <p class="tr-def">Cada una de las 11 capacidades de P9 cuenta cuando la empresa responde <b>«En buena medida» o «En gran medida»</b> y tiene atribución favorable. <b>Al menos una capacidad:</b> cumple la regla en una o más de las 11.</p>
+        <p class="tr-def">Entendemos por <b>capacidad instalada</b> los conocimientos o herramientas que el programa le dejó a la empresa para tomar decisiones en un frente del negocio, según la <a class="tr-qlink" href="#q-9" data-q="9">pregunta 9: «¿En qué medida considera que el acompañamiento recibido por parte de Colsubsidio le brindó conocimientos y/o herramientas para tomar decisiones orientadas a…?»</a> Esa pregunta tiene 11 ítems (aumentar ventas, llegar a nuevos clientes, organizar procesos, etc.). Cada capacidad cuenta cuando la empresa responde <b>«En buena medida» o «En gran medida»</b> y tiene atribución favorable. <b>Al menos una capacidad:</b> cumple la regla en uno o más de los 11 ítems.</p>
       </div>
       <div class="tr-card">
         <div class="tr-def-label">Cambios en el negocio</div>
-        <p class="tr-def">Cada uno de los 6 aspectos de P13 cuenta con <b>«Ha aumentado un poco» o «Ha aumentado bastante»</b> y atribución favorable; en costos de operación se aplica la misma regla, como en la presentación. <b>Resultados empresariales:</b> al menos uno de los 6 cambios. La respuesta «Ha disminuido un poco» se agrupa con «Ha disminuido poco».</p>
+        <p class="tr-def">Son los resultados que la empresa ya percibe, según la <a class="tr-qlink" href="#q-13" data-q="13">pregunta 13: «Desde que terminó el programa, ¿ha notado algún cambio en los siguientes aspectos de su negocio?»</a> Tiene 6 ítems: ventas, clientes, costos de operación, personas que trabajan, canales de venta y acceso a crédito. Cada uno cuenta con <b>«Ha aumentado un poco» o «Ha aumentado bastante»</b> y atribución favorable; en costos de operación se aplica la misma regla, como en la presentación. <b>Resultados empresariales:</b> al menos uno de los 6 cambios. La respuesta «Ha disminuido un poco» se agrupa con «Ha disminuido poco».</p>
       </div>
       <div class="tr-card">
         <div class="tr-def-label">Conexiones y oportunidad de negocio</div>
-        <p class="tr-def"><b>Generó conexiones:</b> responde «Sí» en P15. <b>Oportunidad de negocio:</b> generó conexiones y responde «En gran medida» en nuevos clientes, proveedores o alianzas (P17). <b>Conversión:</b> oportunidad ÷ generó conexiones. <b>Aporte de los espacios:</b> % que responde «En gran medida» en cada ítem de P17, entre quienes generaron conexiones.</p>
+        <p class="tr-def"><b>Generó conexiones:</b> responde «Sí» en la <a class="tr-qlink" href="#q-15" data-q="15">pregunta 15: «¿A través de los programas o espacios de Desarrollo Empresarial de Colsubsidio ha generado conexiones con otros empresarios, aliados o actores del ecosistema empresarial?»</a> <b>Oportunidad de negocio:</b> generó conexiones y responde «En gran medida» en nuevos clientes, proveedores o alianzas en la <a class="tr-qlink" href="#q-17" data-q="17">pregunta 17: «A partir de los espacios de conexión facilitados por Desarrollo Empresarial, indique en qué medida estos han contribuido a los siguientes aspectos en su empresa»</a> <b>Conversión:</b> oportunidad ÷ generó conexiones. <b>Aporte de los espacios:</b> % que responde «En gran medida» en cada ítem de esa misma pregunta, entre quienes generaron conexiones.</p>
       </div>
       <div class="tr-card">
         <div class="tr-def-label">Programas y filtros</div>
-        <p class="tr-def">Los 11 programas se identifican por el texto de P7; una empresa que participó en varios cuenta en cada uno (<b>usos</b>). La distribución por programa es el % de empresas que respondieron. Las 4 empresas que solo marcaron «Inteligencia Artificial – Great Boost» cuentan en las respuestas, no en los usos. Mes y año de atención vienen del registro de atención.</p>
+        <p class="tr-def">Los 11 programas se identifican por la respuesta a la <a class="tr-qlink" href="#q-7" data-q="7">pregunta 7: «¿En cuál o cuáles programas de Colsubsidio participó su empresa?»</a>; una empresa que participó en varios cuenta en cada uno (<b>usos</b>). La distribución por programa es el % de empresas que respondieron. Las 4 empresas que solo marcaron «Inteligencia Artificial – Great Boost» cuentan en las respuestas, no en los usos. El mes y el año de atención no salen del formulario: vienen del registro de atención de Desarrollo Empresarial.</p>
       </div>
       <div class="tr-card">
-        <div class="tr-def-label">Tablas cruzadas y serie mensual</div>
-        <p class="tr-def">Las tablas cruzan la respuesta de ventas (P13 o P9) con la atribución (P14), en % sobre el total del filtro; las celdas en dorado suman el valor del indicador. La serie mensual muestra el indicador por mes de atención, solo en los meses con respuestas. Con menos de 30 respuestas se muestra el aviso de <b>muestra pequeña</b>.</p>
+        <div class="tr-def-label">Tablas cruzadas y gráficas por mes de atención</div>
+        <p class="tr-def">Las tablas cruzan la respuesta sobre ventas (ítem de ventas de la pregunta 13 o de la pregunta 9) con la atribución de la pregunta 14, en % sobre el total del filtro; las celdas en dorado suman el valor del indicador. Las gráficas por <b>mes de atención</b> muestran el indicador para las empresas atendidas en cada mes, solo en los meses con respuestas. Como todas respondieron entre el 28 de agosto y el 1 de octubre de 2026, el mes de atención indica cuánto tiempo pasó entre el fin del acompañamiento y la encuesta. Con menos de 30 respuestas se muestra el aviso de <b>muestra pequeña</b>.</p>
       </div>
     </div>
   </section>
@@ -503,15 +515,16 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
             <h3 class="tr-card-title">Cambios en el negocio atribuidos al programa</h3>
             <p class="tr-card-note">% de empresas que reportan aumento y atribuyen a Colsubsidio la mitad o más del cambio</p>
           </div>
-          <button class="tr-chip" id="toggle-puente" aria-pressed="false">Comparar con la capacidad relacionada</button>
+          <button class="tr-chip" id="toggle-puente" aria-pressed="false">Comparar con la capacidad que dejó el programa</button>
         </div>
         <div class="tr-bars" id="barras-cambios" data-source="agregados"></div>
         <div class="tr-legend">
           <span><i class="tr-sw is-principal"></i>Indicador principal</span>
           <span><i class="tr-sw is-soporte"></i>Indicador de soporte</span>
-          <span class="tr-legend-sub" hidden><i class="tr-sw is-sub"></i>Capacidad relacionada (sección 2)</span>
+          <span class="tr-legend-sub" hidden><i class="tr-sw is-sub"></i>Capacidad que dejó el programa (pregunta 9)</span>
           <span><i class="tr-sw is-meta"></i>Meta 30%</span>
         </div>
+        <p class="tr-capnote" hidden><b>Cómo leer la comparación.</b> Cada fila tiene dos barras. <b>La barra de color responde: ¿el cambio ya ocurrió?</b> Es el % de empresas que vio aumentar ese aspecto de su negocio y lo atribuye al programa (<a class="tr-qlink" href="#q-13" data-q="13">pregunta 13</a>). <b>La barra gris responde: ¿el programa le dio herramientas para lograrlo?</b> Es la <b>capacidad</b>: el % de empresas que dice que el programa le dejó conocimientos o herramientas, «en buena o gran medida», para tomar decisiones en ese mismo frente, también con atribución favorable (<a class="tr-qlink" href="#q-9" data-q="9">pregunta 9</a>). Debajo del nombre de cada fila aparece la capacidad con la que se compara. Si la barra gris es mucho más larga que la de color, las empresas se sienten preparadas, pero el resultado todavía no se ve en el negocio.</p>
       </div>
       <div class="tr-side">
         <div class="tr-card tr-kpi" id="kpi-resultados">
@@ -530,14 +543,15 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 
     <div class="tr-card" id="serie-resultado">
       <div>
-        <h3 class="tr-card-title">Evolución mensual: aumento en ventas atribuido al programa</h3>
-        <p class="tr-card-note">% de empresas por mes de atención · pase el cursor para ver cada mes</p>
+        <h3 class="tr-card-title">Aumento en ventas atribuido al programa según el mes de atención</h3>
+        <p class="tr-card-note">% de empresas según el mes en que terminaron la atención · pase el cursor para ver el % y las respuestas de cada mes</p>
       </div>
       <div class="tr-line" id="linea-resultado" data-source="serie_mensual"></div>
       <div class="tr-legend">
         <span><i class="tr-sw is-line" style="background:var(--color-fg)"></i>Aumento en ventas atribuido</span>
         <span><i class="tr-sw is-meta"></i>Meta 30%</span>
       </div>
+      <p class="tr-why"><b>¿Por qué mirarlo por mes de atención?</b> Todas las empresas respondieron la encuesta entre el 28 de agosto y el 1 de octubre de 2026, así que el mes de atención indica cuánto tiempo pasó entre el fin del acompañamiento y la respuesta: más de un año para las atendidas en 2025 y pocas semanas para las de mediados de 2026. Más tiempo puede dar margen para que los cambios se reflejen en las ventas, pero también puede cambiar el recuerdo y la percepción sobre la utilidad del programa. No es una serie de evolución: cada mes es un grupo distinto de empresas.</p>
     </div>
     <div class="tr-card" id="tabla-resultado">
       <div class="tr-card-head">
@@ -581,6 +595,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
           <div class="tr-kpi-label">Capacidades</div>
           <div class="tr-kpi-n dash-skeleton" data-source="agregados" data-ind="al_menos_una_capacidad" data-fmt="pct1">—</div>
           <p class="tr-kpi-text">Reporta haber <b>desarrollado al menos una capacidad</b> gracias a su participación en los programas.</p>
+          <p class="tr-capnote"><b>¿Qué es capacidad instalada?</b> Son los conocimientos o herramientas que el programa le dejó a la empresa para tomar decisiones en un frente del negocio: vender más, llegar a nuevos clientes, organizar procesos, conocer sus costos, prepararse para un crédito, entre otros. Cuenta cuando la empresa responde «en buena o gran medida» y atribuye al programa la mitad o más (<a class="tr-qlink" href="#q-9" data-q="9">pregunta 9</a>). Es la base para que luego se vean cambios en el negocio.</p>
         </div>
         <div class="tr-card tr-kpi" id="kpi-sobre-meta">
           <div class="tr-kpi-label">Sobre la meta</div>
@@ -593,14 +608,15 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 
     <div class="tr-card" id="serie-capacidad">
       <div>
-        <h3 class="tr-card-title">Evolución mensual: capacidad para aumentar ventas</h3>
-        <p class="tr-card-note">% de empresas por mes de atención · pase el cursor para ver cada mes</p>
+        <h3 class="tr-card-title">Capacidad para aumentar ventas según el mes de atención</h3>
+        <p class="tr-card-note">% de empresas según el mes en que terminaron la atención · pase el cursor para ver el % y las respuestas de cada mes</p>
       </div>
       <div class="tr-line" id="linea-capacidad" data-source="serie_mensual"></div>
       <div class="tr-legend">
         <span><i class="tr-sw is-line" style="background:var(--color-fg)"></i>Capacidad para aumentar ventas</span>
         <span><i class="tr-sw is-meta"></i>Meta 30%</span>
       </div>
+      <p class="tr-why"><b>¿Por qué mirarlo por mes de atención?</b> Todas las empresas respondieron la encuesta entre el 28 de agosto y el 1 de octubre de 2026, así que el mes de atención indica cuánto tiempo pasó entre el fin del acompañamiento y la respuesta: más de un año para las atendidas en 2025 y pocas semanas para las de mediados de 2026. Más tiempo puede dar margen para que los cambios se reflejen en las ventas, pero también puede cambiar el recuerdo y la percepción sobre la utilidad del programa. No es una serie de evolución: cada mes es un grupo distinto de empresas.</p>
     </div>
     <div class="tr-card" id="tabla-capacidad">
       <div class="tr-card-head">
@@ -835,7 +851,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
       const row = document.createElement('div');
       row.className = 'tr-row' + (r.principal ? ' is-principal' : '') + (r.dim ? ' is-dim' : '');
       row.tabIndex = 0;
-      const lab = document.createElement('div'); lab.className = 'tr-row-label'; lab.textContent = r.label;
+      const lab = document.createElement('div'); lab.className = 'tr-row-label'; lab.textContent = r.label; if (r.subLabel) { const sl = document.createElement('small'); sl.className = 'tr-row-sub'; sl.textContent = r.subLabel; lab.append(document.createElement('br'), sl); }
       const tr = document.createElement('div'); tr.className = 'tr-track' + (r.sub != null ? ' has-sub' : '');
       const f = document.createElement('div'); f.className = 'tr-fill'; f.style.width = x(r.value);
       const v = document.createElement('div'); v.className = 'tr-val'; v.style.left = x(r.value); v.textContent = r.text;
@@ -990,7 +1006,7 @@ const F=[
 
   function renderForm() {
     document.getElementById('form-mods').innerHTML = F.map((m, mi) => `<section class="tr-section" aria-label="${esc(m.t)}"><div class="tr-sec-head"><span class="tr-sec-n">${mi + 1}</span><h2 class="tr-sec-title">${esc(m.t)}</h2></div>` +
-      m.qs.map((q) => `<div class="tr-card">
+      m.qs.map((q) => `<div class="tr-card" id="q-${q.n}" tabindex="-1" style="scroll-margin-top:5rem">
         <div class="tr-qhead"><span class="tr-qn">P${q.n}</span><p class="tr-qt">${esc(q.q)}</p></div>
         <div class="tr-tags"><span class="tr-tag">${esc(q.ty)}</span>${q.use ? `<span class="tr-tag is-use">Se usa en: ${esc(q.use)}</span>` : ''}</div>
         ${q.o ? `<ul class="tr-opts">${q.o.map((o) => `<li>${esc(o)}</li>`).join('')}</ul>` : ''}
@@ -1077,13 +1093,14 @@ const F=[
     const cb = document.getElementById('barras-cambios');
     btnPuente.setAttribute('aria-pressed', puente ? 'true' : 'false');
     root.querySelector('.tr-legend-sub').hidden = !puente;
+    root.querySelector('.tr-capnote').hidden = !puente;
     if (row) {
       const rows = CAMBIOS.map(([k, label, capk, principal]) => ({ k, label, capk, principal, v: row[k], c: row[capk] }))
         .sort((a, b) => b.v - a.v)
         .map((r) => ({
-          label: r.label, value: r.v, text: fmt.pct1(r.v), principal: !!r.principal,
-          sub: puente ? r.c : null, subText: fmt.pct1(r.c) + ' capacidad',
-          tip: [['Empresas con el cambio atribuido:', fmt.pct1(r.v)], ['Frente a la meta:', fmt.pp(r.v - META)], ['Capacidad relacionada (' + CAP_NAME[r.capk] + '):', fmt.pct1(r.c)]],
+          label: r.label, subLabel: puente ? 'vs. capacidad: ' + CAP_NAME[r.capk].toLowerCase() : null, value: r.v, text: fmt.pct1(r.v), principal: !!r.principal,
+          sub: puente ? r.c : null, subText: fmt.pct1(r.c),
+          tip: [['Empresas con el cambio atribuido:', fmt.pct1(r.v)], ['Frente a la meta:', fmt.pp(r.v - META)], ['Capacidad que dejó el programa (' + CAP_NAME[r.capk] + '):', fmt.pct1(r.c)]],
         }));
       drawBars(cb, rows, { max: niceMax(rows.map((r) => r.value).concat(puente ? rows.map((r) => r.sub) : [])), meta: META });
     } else if (ag.status === 'error') fail(cb);
@@ -1158,6 +1175,18 @@ const F=[
 
   dash.onData(draw);
   renderForm();
+  root.addEventListener('click', (e) => {
+    const a = e.target.closest('[data-q]');
+    if (!a) return;
+    e.preventDefault();
+    openTab('formulario', true);
+    const el = document.getElementById('q-' + a.dataset.q);
+    if (!el) return;
+    el.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
+    el.focus({ preventScroll: true });
+    el.classList.add('is-flash');
+    setTimeout(() => el.classList.remove('is-flash'), 2200);
+  });
   const start = location.hash.slice(1);
   let first = 'resultados';
   if (['marco', 'resultados', 'formulario'].includes(start)) first = start;
